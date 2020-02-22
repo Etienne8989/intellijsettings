@@ -1,0 +1,15 @@
+<application>
+  <component name="FileTypeManager" version="17">
+    <extensionMap>
+      <mapping pattern="*.js.flow" type="Flow" />
+      <mapping pattern="*.js.flow" type="Flow" />
+      <mapping pattern="usecase-list.adoc" type="PLAIN_TEXT" />
+      <mapping pattern="cuda-fixednet-applikationsbeschreibung.adoc" type="PLAIN_TEXT" />
+      <mapping pattern="release-notes.adoc" type="PLAIN_TEXT" />
+      <mapping pattern="soap-resouce-ksm-postpay-info" type="PLAIN_TEXT" />
+      <mapping pattern="soap-api.adoc" type="PLAIN_TEXT" />
+      <mapping ext="index" type="PLAIN_TEXT" />
+      <mapping ext="graphml" type="PLAIN_TEXT" />
+    </extensionMap>
+  </component>
+</application>

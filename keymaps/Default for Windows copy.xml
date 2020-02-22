@@ -1,0 +1,77 @@
+<keymap version="1" name="Default for Windows copy" parent="$default">
+  <action id="ActivateGradleToolWindow">
+    <keyboard-shortcut first-keystroke="ctrl #10000d6" />
+  </action>
+  <action id="ChangesView.Diff" />
+  <action id="CollapseRegionRecursively">
+    <keyboard-shortcut first-keystroke="ctrl alt subtract" />
+  </action>
+  <action id="CommentByLineComment">
+    <keyboard-shortcut first-keystroke="ctrl slash" />
+    <keyboard-shortcut first-keystroke="ctrl divide" />
+    <keyboard-shortcut first-keystroke="shift ctrl c" />
+  </action>
+  <action id="CompareTwoFiles" />
+  <action id="Console.TableResult.CloneRow" />
+  <action id="Console.TableResult.CompareCells" />
+  <action id="CopyPaths" />
+  <action id="DatabaseView.CopyAction" />
+  <action id="DatabaseView.CopyDdlAction">
+    <keyboard-shortcut first-keystroke="shift ctrl alt g" />
+  </action>
+  <action id="Diff.ShowDiff" />
+  <action id="Diff.ShowSettingsPopup" />
+  <action id="EditorDeleteLine">
+    <keyboard-shortcut first-keystroke="ctrl y" />
+    <keyboard-shortcut first-keystroke="ctrl d" />
+  </action>
+  <action id="EditorDuplicate">
+    <keyboard-shortcut first-keystroke="shift ctrl d" />
+  </action>
+  <action id="EditorLineEnd">
+    <keyboard-shortcut first-keystroke="end" />
+    <keyboard-shortcut first-keystroke="ctrl #10000fc" />
+  </action>
+  <action id="EditorLineStart">
+    <keyboard-shortcut first-keystroke="home" />
+    <keyboard-shortcut first-keystroke="ctrl #10000c4" />
+  </action>
+  <action id="FileChooser.GotoDesktop" />
+  <action id="FileStructurePopup">
+    <keyboard-shortcut first-keystroke="alt less" />
+  </action>
+  <action id="GoToMenu">
+    <keyboard-shortcut first-keystroke="ctrl #10000df" />
+  </action>
+  <action id="HideAllWindows">
+    <keyboard-shortcut first-keystroke="ctrl alt minus" />
+  </action>
+  <action id="NewClass">
+    <keyboard-shortcut first-keystroke="ctrl alt 5" />
+  </action>
+  <action id="NewDir">
+    <keyboard-shortcut first-keystroke="ctrl alt 6" />
+  </action>
+  <action id="RecentFiles">
+    <keyboard-shortcut first-keystroke="ctrl e" />
+    <keyboard-shortcut first-keystroke="ctrl less" />
+  </action>
+  <action id="RunDashboard.CopyConfiguration" />
+  <action id="SendEOF" />
+  <action id="ShowNavBar">
+    <keyboard-shortcut first-keystroke="alt home" />
+    <keyboard-shortcut first-keystroke="alt windows" />
+  </action>
+  <action id="SplitVertically">
+    <keyboard-shortcut first-keystroke="ctrl comma" />
+  </action>
+  <action id="SwitcherRecentEditedChangedToggleCheckBox">
+    <keyboard-shortcut first-keystroke="ctrl a" />
+  </action>
+  <action id="TagDocumentationNavigation" />
+  <action id="Uml.ShowDiff" />
+  <action id="Vcs.ShowMessageHistory">
+    <keyboard-shortcut first-keystroke="ctrl m" />
+  </action>
+  <action id="openAssertEqualsDiff" />
+</keymap>

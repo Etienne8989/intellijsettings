@@ -1,0 +1,30 @@
+<templateSet group="custom-templates">
+  <template name="testclassjunit4-springboottest(gesamter-context)" value="@SpringBootTest&#10;@RunWith(SpringRunner.class)&#10;@Slf4j //nur wenn logausgaben nötig sind&#10;public class $CLASS_NAME$ {&#10;&#10;    @Test&#10;    public void $TestName$() {&#10;        $END$&#10;    }&#10;&#10;}" description="template to create a junit4-testclass with@Springboottest (loads the hole spring-boot-context)" toReformat="false" toShortenFQNames="true">
+    <variable name="CLASS_NAME" expression="" defaultValue="ClassNameTest" alwaysStopAt="true" />
+    <variable name="TestName" expression="" defaultValue="testName" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="testclassjunit4-webmvctest(nur-web-components)" value="@RunWith(SpringRunner.class)&#10;@WebMvcTest(/*Klassen inserten, die @autowired werden sollen z.B. {PostpayBalanceService.class, GetInfo3Client.class}*/)&#10;@Slf4j //nur wenn geloggt werden soll&#10;public class $CLASS_NAME_TEST$ {&#10;&#10;    @Test&#10;    public void test() {&#10;   &#10;    }&#10;&#10;}" description="" toReformat="false" toShortenFQNames="true">
+    <variable name="CLASS_NAME_TEST" expression="" defaultValue="ClassNameTest" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="test-given-mockito" value="BDDMockito.given(getInfo3ClientExecutor.executeRequest(ArgumentMatchers.any()))&#10;                .willReturn(&quot;info3Response&quot;);" description="inserts a given method for a mock" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="testAssertException-Junit5" value="Assertions.assertThrows(IllegalArgumentException.class, () -&gt; {&#10;            verificationService.isCustomerVerificationValid(verificationData);&#10;        });" description="assertes a exception for a given method (junit5 only)" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="testAssertException-Junit4" value=" @Rule&#10;    public final ExpectedException expectedException = ExpectedException.none();&#10;&#10;    @Test&#10;    public void failTest() {&#10;        expectedException.expect(BadGatewayException.class);&#10;        expectedException.expectMessage(&quot;Got illegal response from Backend.&quot;);&#10;&#10;        //further testing here&#10;    }" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+</templateSet>
