@@ -1,5 +1,5 @@
 <templateSet group="user">
-  <template name="configuration-properties-class" value="@Data&#10;@Component&#10;@Validated&#10;@ConfigurationProperties(&quot;config.name&quot;)&#10;public class $CLASS$ {&#10;&#10;    @NotEmpty&#10;    private String first;&#10;    @NotEmpty&#10;    private String second;&#10;    @NotEmpty&#10;    private String third;&#10;&#10;}" toReformat="false" toShortenFQNames="true">
+  <template name="configuration-properties-class" value="@Data&#10;@Component&#10;@Validated&#10;@ConfigurationProperties(&quot;config.name&quot;)&#10;public class $CLASS$ {&#10;&#10;    @NotEmpty&#10;    private String first;&#10;    @NotEmpty&#10;    private String second;&#10;    @NotEmpty&#10;    private String third;&#10;&#10;}" description="" toReformat="false" toShortenFQNames="true">
     <variable name="CLASS" expression="" defaultValue="ClassName" alwaysStopAt="true" />
     <context>
       <option name="JAVA_CODE" value="true" />
