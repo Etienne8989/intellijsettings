@@ -3,20 +3,9 @@
     <keyboard-shortcut first-keystroke="ctrl #10000d6" />
   </action>
   <action id="ChangesView.Diff" />
-  <action id="CollapseAll">
-    <keyboard-shortcut first-keystroke="ctrl subtract" />
-  </action>
-  <action id="CollapseExpandableComponent">
-    <keyboard-shortcut first-keystroke="shift enter" />
-    <keyboard-shortcut first-keystroke="ctrl subtract" />
-  </action>
-  <action id="CollapseRegion">
-    <keyboard-shortcut first-keystroke="ctrl subtract" />
-  </action>
   <action id="CollapseRegionRecursively">
     <keyboard-shortcut first-keystroke="ctrl alt subtract" />
   </action>
-  <action id="CollapseSelection" />
   <action id="CommentByLineComment">
     <keyboard-shortcut first-keystroke="ctrl slash" />
     <keyboard-shortcut first-keystroke="ctrl divide" />
@@ -32,7 +21,6 @@
   </action>
   <action id="Diff.ShowDiff" />
   <action id="Diff.ShowSettingsPopup" />
-  <action id="EditorChooseLookupItemDot" />
   <action id="EditorDeleteLine">
     <keyboard-shortcut first-keystroke="ctrl y" />
     <keyboard-shortcut first-keystroke="ctrl d" />
@@ -56,10 +44,7 @@
     <keyboard-shortcut first-keystroke="ctrl #10000df" />
   </action>
   <action id="HideAllWindows">
-    <keyboard-shortcut first-keystroke="ctrl minus" />
-  </action>
-  <action id="HideSideWindows">
-    <keyboard-shortcut first-keystroke="ctrl period" />
+    <keyboard-shortcut first-keystroke="ctrl alt minus" />
   </action>
   <action id="NewClass">
     <keyboard-shortcut first-keystroke="ctrl alt 5" />
