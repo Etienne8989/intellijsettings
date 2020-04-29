@@ -38,4 +38,10 @@
       <option name="JAVA_CODE" value="true" />
     </context>
   </template>
+  <template name="template-restController" value="@RestController&#10;@RequestMapping(&quot;/outerPath&quot;)&#10;@AllArgsConstructor&#10;public class $ClassName$ {&#10;&#10;    @VaspLog&#10;    @PostMapping(&quot;/innerPath&quot;)&#10;    public ResponseEntity&lt;Void&gt; method(@RequestBody RequestBody requestBody) {&#10;        //Services&#10;        return new ResponseEntity&lt;&gt;(new HttpHeaders(), HttpStatus.CREATED);&#10;    }&#10;&#10;}" toReformat="false" toShortenFQNames="true">
+    <variable name="ClassName" expression="className()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
 </templateSet>
