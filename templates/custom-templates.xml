@@ -33,34 +33,34 @@
       <option name="JAVA_CODE" value="true" />
     </context>
   </template>
-  <template name="template-exception" value="throw new $exceptionName$ (&quot;$message$. Cause: &quot; e.getClass().getSimpleName() + e.getMessage(), e);" toReformat="false" toShortenFQNames="true">
+  <template name="template-exception" value="throw new $exceptionName$ (&quot;$message$. Cause: &quot; e.getClass().getSimpleName() + e.getMessage(), e);" description="" toReformat="false" toShortenFQNames="true">
     <variable name="exceptionName" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="message" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="JAVA_CODE" value="true" />
     </context>
   </template>
-  <template name="template-restController" value="@RestController&#10;@RequestMapping(&quot;/outerPath&quot;)&#10;@AllArgsConstructor&#10;public class $ClassName$ {&#10;&#10;    @VaspLog&#10;    @PostMapping(&quot;/innerPath&quot;)&#10;    public ResponseEntity&lt;Void&gt; method(@RequestBody RequestBody requestBody) {&#10;        //Services&#10;        return new ResponseEntity&lt;&gt;(new HttpHeaders(), HttpStatus.CREATED);&#10;    }&#10;&#10;}" toReformat="false" toShortenFQNames="true">
+  <template name="template-restController" value="@RestController&#10;@RequestMapping(&quot;/outerPath&quot;)&#10;@AllArgsConstructor&#10;public class $ClassName$ {&#10;&#10;    @VaspLog&#10;    @PostMapping(&quot;/innerPath&quot;)&#10;    public ResponseEntity&lt;Void&gt; method(@RequestBody RequestBody requestBody) {&#10;        //Services&#10;        return new ResponseEntity&lt;&gt;(new HttpHeaders(), HttpStatus.CREATED);&#10;    }&#10;&#10;}" description="" toReformat="false" toShortenFQNames="true">
     <variable name="ClassName" expression="className()" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="JAVA_CODE" value="true" />
     </context>
   </template>
-  <template name="template-client-rest" value="@Slf4j&#10;@AllArgsConstructor&#10;@Component&#10;public class $ClassName$ {&#10;&#10;    ConnectorSettings connectorSettings;&#10;    Executor executor;&#10;&#10;    @CircuitBreaker(name = &quot;CircuitBreakerName&quot;)&#10;    public void getRequest() {&#10;        String ResponseEntity&lt;$Object$&gt; = connectorSettings.getUrl();&#10;&#10;        ResponseEntity&lt;$Object$&gt; responseEntity;&#10;        try {&#10;            responseEntity = executor.getObject(url, restTemplate);&#10;        } catch (Exception e) {&#10;            throw new BadGatewayException(&quot;Could not send Request. Cause: &quot; + e.getClass().getSimpleName() + &quot;: &quot; + e.getMessage(), e);&#10;        }&#10;    }&#10;&#10;    @CircuitBreaker(name = &quot;CircuitBreakerName&quot;)&#10;    public void postRequest($Object$ postObject) {&#10;        String url = connectorSettings.getUrl();&#10;        &#10;        try {&#10;            executor.postObject(url, postObject, restTemplate);&#10;        } catch (Exception e) {&#10;            throw new BadGatewayException(&quot;Could not send Request. Cause: &quot; + e.getClass().getSimpleName() + &quot;: &quot; + e.getMessage(), e);&#10;        }&#10;    }&#10;}" toReformat="false" toShortenFQNames="true">
-    <variable name="ClassName" expression="className()" defaultValue="" alwaysStopAt="true" />
-    <variable name="Object" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="JAVA_CODE" value="true" />
-    </context>
-  </template>
-  <template name="template-executor" value="@Validated&#10;@Component&#10;public class $ClassName$ {&#10;&#10;    @VaspLog(httpMethod = &quot;GET&quot;)&#10;    public ResponseEntity&lt;$Object$&gt; getObject(@NotNull @VaspLogParameterURL String url,&#10;                                          @NotNull @VaspLogIgnore RestTemplate template) {&#10;        return template.getForEntity(url, $Object$.class);&#10;    }&#10;&#10;    @VaspLog(httpMethod = &quot;POST&quot;)&#10;    public ResponseEntity&lt;$Object$&gt; postObject(@NotNull @VaspLogParameterURL String url,&#10;                                           @NotNull @VaspLogPayload Object payLoad,&#10;                                           @NotNull @VaspLogIgnore RestTemplate template) {&#10;        return template.postForEntity(url, payLoad, $Object$.class);&#10;    }&#10;}" toReformat="false" toShortenFQNames="true">
+  <template name="template-client-rest" value="@Slf4j&#10;@AllArgsConstructor&#10;@Component&#10;public class $ClassName$ {&#10;&#10;    ConnectorSettings connectorSettings;&#10;    Executor executor;&#10;&#10;    @CircuitBreaker(name = &quot;CircuitBreakerName&quot;)&#10;    public void getRequest() {&#10;        String ResponseEntity&lt;$Object$&gt; = connectorSettings.getUrl();&#10;&#10;        ResponseEntity&lt;$Object$&gt; responseEntity;&#10;        try {&#10;            responseEntity = executor.getObject(url, restTemplate);&#10;        } catch (Exception e) {&#10;            throw new BadGatewayException(&quot;Could not send Request. Cause: &quot; + e.getClass().getSimpleName() + &quot;: &quot; + e.getMessage(), e);&#10;        }&#10;    }&#10;&#10;    @CircuitBreaker(name = &quot;CircuitBreakerName&quot;)&#10;    public void postRequest($Object$ postObject) {&#10;        String url = connectorSettings.getUrl();&#10;        &#10;        try {&#10;            executor.postObject(url, postObject, restTemplate);&#10;        } catch (Exception e) {&#10;            throw new BadGatewayException(&quot;Could not send Request. Cause: &quot; + e.getClass().getSimpleName() + &quot;: &quot; + e.getMessage(), e);&#10;        }&#10;    }&#10;}" description="" toReformat="false" toShortenFQNames="true">
     <variable name="ClassName" expression="className()" defaultValue="" alwaysStopAt="true" />
     <variable name="Object" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="JAVA_CODE" value="true" />
     </context>
   </template>
-  <template name="template-settings" value="@Data&#10;@Component&#10;@ConfigurationProperties(prefix = &quot;prefixname&quot;)&#10;public class $ClassName$ {&#10;&#10;    private String prop1;&#10;&#10;    private String prop2;&#10;&#10;    private String prop3;&#10;&#10;}" toReformat="false" toShortenFQNames="true">
+  <template name="template-executor" value="@Validated&#10;@Component&#10;public class $ClassName$ {&#10;&#10;    @VaspLog(httpMethod = &quot;GET&quot;)&#10;    public ResponseEntity&lt;$Object$&gt; getObject(@NotNull @VaspLogParameterURL String url,&#10;                                          @NotNull @VaspLogIgnore RestTemplate template) {&#10;        return template.getForEntity(url, $Object$.class);&#10;    }&#10;&#10;    @VaspLog(httpMethod = &quot;POST&quot;)&#10;    public ResponseEntity&lt;$Object$&gt; postObject(@NotNull @VaspLogParameterURL String url,&#10;                                           @NotNull @VaspLogPayload Object payLoad,&#10;                                           @NotNull @VaspLogIgnore RestTemplate template) {&#10;        return template.postForEntity(url, payLoad, $Object$.class);&#10;    }&#10;}" description="" toReformat="false" toShortenFQNames="true">
+    <variable name="ClassName" expression="className()" defaultValue="" alwaysStopAt="true" />
+    <variable name="Object" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="template-settings" value="@Data&#10;@Component&#10;@ConfigurationProperties(prefix = &quot;prefixname&quot;)&#10;public class $ClassName$ {&#10;&#10;    private String prop1;&#10;&#10;    private String prop2;&#10;&#10;    private String prop3;&#10;&#10;}" description="" toReformat="false" toShortenFQNames="true">
     <variable name="ClassName" expression="className()" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="JAVA_CODE" value="true" />
