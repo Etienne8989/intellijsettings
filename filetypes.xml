@@ -3,6 +3,7 @@
     <extensionMap>
       <mapping pattern="*.js.flow" type="Flow" />
       <mapping pattern="*.js.flow" type="Flow" />
+      <mapping ext="gradle.kts" type="Kotlin" />
       <mapping pattern="usecase-list.adoc" type="PLAIN_TEXT" />
       <mapping pattern="cuda-fixednet-applikationsbeschreibung.adoc" type="PLAIN_TEXT" />
       <mapping pattern="release-notes.adoc" type="PLAIN_TEXT" />
