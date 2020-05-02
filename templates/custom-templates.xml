@@ -66,4 +66,10 @@
       <option name="JAVA_CODE" value="true" />
     </context>
   </template>
+  <template name="template-entity" value="@Data&#10;@Entity&#10;@Table(name = &quot;article&quot;)&#10;@NoArgsConstructor&#10;@AllArgsConstructor&#10;public class $ClassName$ implements Serializable {&#10;&#10;    private static final long serialVersionUID = 1L;&#10;&#10;    @Id&#10;    @GeneratedValue(strategy = GenerationType.SEQUENCE)&#10;    private Long oid;&#10;&#10;    @NaturalId&#10;    @Column(nullable = false)&#10;    private String slug;&#10;&#10;    @Column(name = &quot;column_one&quot;, nullable = false, length = 2500)&#10;    private String columnOne;&#10;&#10;    @Column(name = &quot;col&quot;, nullable = false, columnDefinition = &quot;TEXT&quot;)&#10;    private String columnTwo;&#10;&#10;    @Column(name = &quot;column_three&quot;, nullable = false, columnDefinition = &quot;TIMESTAMP&quot;)&#10;    private ZonedDateTime columnThree;&#10;&#10;    @OneToMany(targetEntity = ManyEntity.class, mappedBy = &quot;refereceVariableInManyEntity&quot;, fetch = FetchType.EAGER, cascade = CascadeType.ALL)&#10;    private List&lt;ManyEntity&gt; oneToManyVariable;&#10;&#10;    //foreign key&#10;    @ManyToOne()&#10;    @JoinColumn(name = &quot;category_slug&quot;, referencedColumnName = &quot;refereceVariable&quot;)&#10;    private ForeigenClass categorySlug;&#10;&#10;}" toReformat="false" toShortenFQNames="true">
+    <variable name="ClassName" expression="className()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
 </templateSet>
