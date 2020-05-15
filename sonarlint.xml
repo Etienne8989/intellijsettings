@@ -4,6 +4,7 @@
       <set>
         <option value="squid:S00119" />
         <option value="squid:S1192" />
+        <option value="squid:S1193" />
         <option value="squid:S1854" />
       </set>
     </option>
