@@ -72,7 +72,7 @@
       <option name="JAVA_CODE" value="true" />
     </context>
   </template>
-  <template name="template-executor-soap" value="@Validated&#10;@Component&#10;public class $className$ {&#10;&#10;    @VaspLog(httpMethod = &quot;GET&quot;)&#10;    public GetContractMCInfoBulk4Response marshalSendAndReceive(@NotNull @VaspLogParameterURL String url,&#10;                                                                @NotNull GetContractMCInfoBulk4_Type requestPayload,&#10;                                                                @NotNull @VaspLogIgnore WebServiceTemplate template) {&#10;        return (GetContractMCInfoBulk4Response) template.marshalSendAndReceive(url, requestPayload);&#10;    }&#10;}" toReformat="false" toShortenFQNames="true">
+  <template name="template-executor-soap" value="@Validated&#10;@Component&#10;public class $className$ {&#10;&#10;    @VaspLog(httpMethod = &quot;GET&quot;)&#10;    public GetContractMCInfoBulk4Response marshalSendAndReceive(@NotNull @VaspLogParameterURL String url,&#10;                                                                @NotNull GetContractMCInfoBulk4_Type requestPayload,&#10;                                                                @NotNull @VaspLogIgnore WebServiceTemplate template) {&#10;        return (GetContractMCInfoBulk4Response) template.marshalSendAndReceive(url, requestPayload);&#10;    }&#10;}" description="" toReformat="false" toShortenFQNames="true">
     <variable name="className" expression="className()" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="JAVA_CODE" value="true" />
