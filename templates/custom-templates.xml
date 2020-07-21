@@ -85,7 +85,7 @@
       <option name="JAVA_CODE" value="true" />
     </context>
   </template>
-  <template name="temp-mvc-response" value=" MvcResult mvcResult = mockMvc.perform(RestDocumentationRequestBuilders.post(&quot;/enpoint&quot;)&#10;                                                      .header(&quot;X-B3-TraceId&quot;, UUID.randomUUID().toString())&#10;                                                      .header(&quot;X-B3-SpanId&quot;, UUID.randomUUID().toString())&#10;                                                      .contentType(MediaType.APPLICATION_JSON)&#10;                                                      .content(new ObjectMapper().writeValueAsString(requestdata))&#10;                                                      .accept(MediaType.APPLICATION_JSON)).andReturn();" description="" toReformat="false" toShortenFQNames="true">
+  <template name="temp-mvc-response" value="String contentAsString = mockMvc.perform(RestDocumentationRequestBuilders.post(&quot;/enpoint&quot;)&#10;                                                 .header(&quot;X-B3-TraceId&quot;, UUID.randomUUID().toString())&#10;                                                 .header(&quot;X-B3-SpanId&quot;, UUID.randomUUID().toString())&#10;                                                 .contentType(MediaType.APPLICATION_JSON)&#10;                                                 .content(new ObjectMapper().writeValueAsString(requestObject))&#10;                                                 .accept(MediaType.APPLICATION_JSON)).andReturn().getRequest().getContentAsString();" description="" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="JAVA_CODE" value="true" />
     </context>
