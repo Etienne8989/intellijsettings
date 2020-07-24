@@ -51,6 +51,11 @@
   <action id="GoToMenu">
     <keyboard-shortcut first-keystroke="ctrl #10000df" />
   </action>
+  <action id="GotoImplementation">
+    <keyboard-shortcut first-keystroke="ctrl alt b" />
+    <mouse-shortcut keystroke="control alt button1" />
+    <mouse-shortcut keystroke="shift control button3" />
+  </action>
   <action id="HideAllWindows">
     <keyboard-shortcut first-keystroke="ctrl alt minus" />
   </action>
