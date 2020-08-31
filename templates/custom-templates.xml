@@ -95,4 +95,9 @@
       <option name="JAVA_CODE" value="true" />
     </context>
   </template>
+  <template name="temp-jaxb" value=" public static &lt;T&gt; JAXBElement&lt;T&gt; buildJAXElement(T elementInstance, String localPartName) {&#10;        return new JAXBElement&lt;T&gt;(new QName(localPartName), (Class&lt;T&gt;) elementInstance.getClass(), elementInstance);&#10;    }" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
 </templateSet>
