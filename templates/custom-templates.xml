@@ -100,4 +100,9 @@
       <option name="JAVA_CODE" value="true" />
     </context>
   </template>
+  <template name="temp-retry" value="    @Retryable(include = RequestTimeoutException.class,&#10;            maxAttemptsExpression = &quot;${service.ticket.retry.maxAttempts}&quot;,&#10;            backoff = @Backoff(delayExpression = &quot;${service.ticket.retry.delay}&quot;,&#10;                    multiplierExpression = &quot;${service.ticket.retry.multiplier}&quot;,&#10;                    maxDelayExpression = &quot;${service.ticket.retry.maxDelay}&quot;))" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
 </templateSet>
