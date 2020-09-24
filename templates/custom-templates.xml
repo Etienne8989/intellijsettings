@@ -111,4 +111,9 @@
       <option name="JAVA_CODE" value="true" />
     </context>
   </template>
+  <template name="temp-enum" value="    public enum TestEnum {&#10;        VALUE_ONE(200, &quot;OK&quot;),&#10;        VALUE_TWO(404, &quot;not found&quot;);&#10;&#10;        String message;&#10;        int status;&#10;&#10;        TestEnum(int status, String message){&#10;            this.message = message;&#10;            this.status = status;&#10;        }&#10;    }" description="example of a enum" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
 </templateSet>
