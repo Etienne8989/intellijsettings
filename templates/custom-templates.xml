@@ -105,4 +105,10 @@
       <option name="JAVA_CODE" value="true" />
     </context>
   </template>
+  <template name="temp-advice" value="import de.telekom.vasp.restutils.resources.ErrorDocument;&#10;import lombok.extern.slf4j.Slf4j;&#10;import org.springframework.http.HttpStatus;&#10;import org.springframework.http.ResponseEntity;&#10;import org.springframework.http.converter.HttpMessageConversionException;&#10;import org.springframework.web.bind.annotation.ControllerAdvice;&#10;import org.springframework.web.bind.annotation.ExceptionHandler;&#10;import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;&#10;&#10;&#10;@Slf4j&#10;@ControllerAdvice&#10;public class $className$ extends ResponseEntityExceptionHandler {&#10;&#10;    @ExceptionHandler(HttpMessageConversionException.class)&#10;    public ResponseEntity&lt;Object&gt; handleSqlProcessingException(HttpMessageConversionException exception) {&#10;        String message = String.format(&quot;Request contains a malformed Json: %s&quot;, exception.getMessage());&#10;        if (log.isDebugEnabled()) {&#10;            log.debug(HttpStatus.BAD_REQUEST.getReasonPhrase() + &quot;: &quot; + message, exception);&#10;        }&#10;        ErrorDocument errorDocument = new ErrorDocument(HttpStatus.BAD_REQUEST, message);&#10;        return createErrorDocumentResponse(errorDocument);&#10;    }&#10;&#10;    protected ResponseEntity&lt;Object&gt; createErrorDocumentResponse(ErrorDocument errorDocument) {&#10;        return new ResponseEntity(errorDocument, errorDocument.getStatus());&#10;    }&#10;&#10;}" description="ControllerExceptionHandler for exception-advice" toReformat="false" toShortenFQNames="true">
+    <variable name="className" expression="className()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
 </templateSet>
