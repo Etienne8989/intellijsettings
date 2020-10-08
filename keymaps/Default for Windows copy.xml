@@ -69,6 +69,9 @@
   <action id="NewDir">
     <keyboard-shortcut first-keystroke="ctrl alt 6" />
   </action>
+  <action id="NewFile">
+    <keyboard-shortcut first-keystroke="ctrl alt 4" />
+  </action>
   <action id="RecentFiles">
     <keyboard-shortcut first-keystroke="ctrl e" />
     <keyboard-shortcut first-keystroke="ctrl less" />
