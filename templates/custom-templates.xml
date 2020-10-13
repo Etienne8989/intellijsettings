@@ -116,12 +116,17 @@
       <option name="JAVA_CODE" value="true" />
     </context>
   </template>
-  <template name="temp-db-h2-test-settings-yml" value="spring:&#10;  datasource:&#10;    url: jdbc:h2:file:./build/test;DB_CLOSE_ON_EXIT=FALSE&#10;    password: ''&#10;    username: sa&#10;    driverClassName: org.h2.Driver&#10;  jpa:&#10;    database-platform: org.hibernate.dialect.H2Dialect&#10;    hibernate.ddl-auto: create&#10;    generate-ddl: true" toReformat="false" toShortenFQNames="true">
+  <template name="temp-settings-yml-db-h2-test" value="spring:&#10;  datasource:&#10;    url: jdbc:h2:file:./build/test;DB_CLOSE_ON_EXIT=FALSE&#10;    password: ''&#10;    username: sa&#10;    driverClassName: org.h2.Driver&#10;  jpa:&#10;    database-platform: org.hibernate.dialect.H2Dialect&#10;    hibernate.ddl-auto: create&#10;    generate-ddl: true" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="OTHER" value="true" />
     </context>
   </template>
-  <template name="temp-db-oracle-settings-yml" value="spring:&#10;  jpa:&#10;    database-platform: org.hibernate.dialect.Oracle10gDialect&#10;    hibernate.ddl-auto: none&#10;    open-in-view: false&#10;  datasource:&#10;    driverClassName: oracle.jdbc.OracleDriver&#10;    platform: org.hibernate.dialect.Oracle10gDialect&#10;    url: jdbc:oracle:thin:@xxx.vasp.prod&#10;    username: username&#10;    password: password" toReformat="false" toShortenFQNames="true">
+  <template name="temp-settings-yml-db-oracle" value="spring:&#10;  jpa:&#10;    database-platform: org.hibernate.dialect.Oracle10gDialect&#10;    hibernate.ddl-auto: none&#10;    open-in-view: false&#10;  datasource:&#10;    driverClassName: oracle.jdbc.OracleDriver&#10;    platform: org.hibernate.dialect.Oracle10gDialect&#10;    url: jdbc:oracle:thin:@xxx.vasp.prod&#10;    username: username&#10;    password: password" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="temp-settings-yml-management-endpoints" value="management:&#10;  endpoint.health.show-details: always&#10;  endpoints:&#10;    web.exposure.include:&#10;      - health&#10;      - info&#10;      - monitoring&#10;      - loggers&#10;      - metrics&#10;      - prometheus&#10;    jmx.exposure.exclude: '*'" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="OTHER" value="true" />
     </context>
