@@ -146,4 +146,9 @@
       <option name="JAVA_CODE" value="true" />
     </context>
   </template>
+  <template name="temp-log-ex" value="log.debug(e.getClass().getName() + &quot; : &quot; + e.getMessage(), e);" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
 </templateSet>
