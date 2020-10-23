@@ -137,4 +137,13 @@
       <option name="JAVA_CODE" value="true" />
     </context>
   </template>
+  <template name="temp-configuration-properties-class" value="import lombok.Data;&#10;import org.springframework.boot.context.properties.ConfigurationProperties;&#10;import org.springframework.stereotype.Component;&#10;&#10;@Data&#10;@Component&#10;@ConfigurationProperties(&quot;config.name&quot;)&#10;public class $CLASS$ {&#10;&#10;    private String $1$;&#10;    private String $2$;&#10;    private String $3$;&#10;&#10;}" description="" toReformat="false" toShortenFQNames="true">
+    <variable name="CLASS" expression="className()" defaultValue="ClassName" alwaysStopAt="true" />
+    <variable name="1" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="2" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="3" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
 </templateSet>
