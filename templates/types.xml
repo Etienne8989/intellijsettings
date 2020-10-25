@@ -1,17 +1,17 @@
 <templateSet group="types">
-  <template name="ps" value="private String $name$;" toReformat="false" toShortenFQNames="true">
+  <template name="ps" value="private String $name$;" description="" toReformat="false" toShortenFQNames="true">
     <variable name="name" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="JAVA_CODE" value="true" />
     </context>
   </template>
-  <template name="pb" value="private boolean $name$;" toReformat="false" toShortenFQNames="true">
+  <template name="pb" value="private boolean $name$;" description="" toReformat="false" toShortenFQNames="true">
     <variable name="name" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="JAVA_CODE" value="true" />
     </context>
   </template>
-  <template name="pi" value="private int $name$;" toReformat="false" toShortenFQNames="true">
+  <template name="pi" value="private int $name$;" description="" toReformat="false" toShortenFQNames="true">
     <variable name="name" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="JAVA_CODE" value="true" />
