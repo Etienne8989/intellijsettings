@@ -156,7 +156,7 @@
       <option name="JAVA_CODE" value="true" />
     </context>
   </template>
-  <template name="temp-ex-throw" value="throw new BadGatewayException(ex.getClass().getName() + &quot; : &quot; + ex.getMessage(), ex);" toReformat="false" toShortenFQNames="true">
+  <template name="temp-ex-throw" value="throw new BadGatewayException(ex.getClass().getName() + &quot; : &quot; + ex.getMessage(), ex);" description="" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="JAVA_CODE" value="true" />
     </context>
