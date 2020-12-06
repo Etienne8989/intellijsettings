@@ -13,63 +13,63 @@
       <option name="HTML" value="true" />
     </context>
   </template>
-  <template name="table" value="&lt;table$1$&gt;$end$&lt;/table&gt;" toReformat="false" toShortenFQNames="true">
+  <template name="table" value="&lt;table$1$&gt;$end$&lt;/table&gt;" description="" toReformat="false" toShortenFQNames="true">
     <variable name="1" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="end" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="HTML" value="true" />
     </context>
   </template>
-  <template name="th" value="&lt;th$1$&gt;$end$&lt;/th&gt;" toReformat="false" toShortenFQNames="true">
+  <template name="th" value="&lt;th$1$&gt;$end$&lt;/th&gt;" description="" toReformat="false" toShortenFQNames="true">
     <variable name="1" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="end" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="HTML" value="true" />
     </context>
   </template>
-  <template name="tr" value="&lt;tr$1$&gt;$end$&lt;/tr&gt;" toReformat="false" toShortenFQNames="true">
+  <template name="tr" value="&lt;tr$1$&gt;$end$&lt;/tr&gt;" description="" toReformat="false" toShortenFQNames="true">
     <variable name="1" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="end" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="HTML" value="true" />
     </context>
   </template>
-  <template name="h1" value="&lt;h1$1$&gt;$end$&lt;/h1&gt;" toReformat="false" toShortenFQNames="true">
+  <template name="h1" value="&lt;h1$1$&gt;$end$&lt;/h1&gt;" description="" toReformat="false" toShortenFQNames="true">
     <variable name="1" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="end" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="HTML" value="true" />
     </context>
   </template>
-  <template name="h2" value="&lt;h2$1$&gt;$end$&lt;/h2&gt;" toReformat="false" toShortenFQNames="true">
+  <template name="h2" value="&lt;h2$1$&gt;$end$&lt;/h2&gt;" description="" toReformat="false" toShortenFQNames="true">
     <variable name="1" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="end" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="HTML" value="true" />
     </context>
   </template>
-  <template name="td" value="&lt;td$1$&gt;$end$&lt;/td&gt;" toReformat="false" toShortenFQNames="true">
+  <template name="td" value="&lt;td$1$&gt;$end$&lt;/td&gt;" description="" toReformat="false" toShortenFQNames="true">
     <variable name="1" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="end" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="HTML" value="true" />
     </context>
   </template>
-  <template name="thead" value="&lt;thead$1$&gt;$end$&lt;/thead&gt;" toReformat="false" toShortenFQNames="true">
+  <template name="thead" value="&lt;thead$1$&gt;$end$&lt;/thead&gt;" description="" toReformat="false" toShortenFQNames="true">
     <variable name="1" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="end" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="HTML" value="true" />
     </context>
   </template>
-  <template name="tbody" value="&lt;tbody$1$&gt;$end$&lt;/tbody&gt;" toReformat="false" toShortenFQNames="true">
+  <template name="tbody" value="&lt;tbody$1$&gt;$end$&lt;/tbody&gt;" description="" toReformat="false" toShortenFQNames="true">
     <variable name="1" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="end" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="HTML" value="true" />
     </context>
   </template>
-  <template name="tfoot" value="&lt;tfoot$1$&gt;$end$&lt;/tfoot&gt;" toReformat="false" toShortenFQNames="true">
+  <template name="tfoot" value="&lt;tfoot$1$&gt;$end$&lt;/tfoot&gt;" description="" toReformat="false" toShortenFQNames="true">
     <variable name="1" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="end" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
