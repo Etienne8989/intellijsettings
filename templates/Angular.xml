@@ -1,0 +1,7 @@
+<templateSet group="Angular">
+  <template name="a-c-reactive-form-group" value="  cardForm = new FormGroup(&#10;    {&#10;      inputName: new DateFormControl('', [&#10;        Validators.required, // value is required&#10;        Validators.minLength(6), // min length of 6&#10;        Validators.maxLength(8), // max length of 8&#10;        Validators.pattern(/\s/) // must match this regex-pattern&#10;      ])&#10;    }&#10;    )" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+    </context>
+  </template>
+</templateSet>
