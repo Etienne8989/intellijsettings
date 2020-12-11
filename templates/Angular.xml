@@ -1,15 +1,15 @@
 <templateSet group="Angular">
-  <template name="a-c-reactive-form-group" value="  formGroupName = new FormGroup(&#10;    {&#10;      formControlName: new FormControl('', [&#10;        Validators.required, // value is required&#10;        Validators.minLength(6), // min length of 6&#10;        Validators.maxLength(8), // max length of 8&#10;        Validators.pattern(/\s/) // must match this regex-pattern&#10;      ])&#10;    }&#10;    )" toReformat="false" toShortenFQNames="true">
+  <template name="a-c-reactive-form-group" value="  formGroupName = new FormGroup(&#10;    {&#10;      formControlName: new FormControl('', [&#10;        Validators.required, // value is required&#10;        Validators.minLength(6), // min length of 6&#10;        Validators.maxLength(8), // max length of 8&#10;        Validators.pattern(/\s/) // must match this regex-pattern&#10;      ])&#10;    }&#10;    )" description="" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="JAVA_SCRIPT" value="true" />
     </context>
   </template>
-  <template name="a-c-reactive-form-group-with-custom-validator" value="  formGroupName = new FormGroup(&#10;    {&#10;      a: new FormControl(this.randomNumber()),&#10;      b: new FormControl(this.randomNumber()),&#10;      answer: new FormControl('')&#10;    }, [(form: AbstractControl) =&gt; {&#10;      const {a, b, answer} = form.value;&#10;      // if value is valid return null else return a custom property&#10;      // that you want to display in the errors object&#10;      return a + b === parseInt(answer) ? null : {addition: true};&#10;    }]);" toReformat="false" toShortenFQNames="true">
+  <template name="a-c-reactive-form-group-with-custom-validator" value="  formGroupName = new FormGroup(&#10;    {&#10;      a: new FormControl(this.randomNumber()),&#10;      b: new FormControl(this.randomNumber()),&#10;      answer: new FormControl('')&#10;    }, [(form: AbstractControl) =&gt; {&#10;      const {a, b, answer} = form.value;&#10;      // if value is valid return null else return a custom property&#10;      // that you want to display in the errors object&#10;      return a + b === parseInt(answer) ? null : {addition: true};&#10;    }]);" description="" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="JAVA_SCRIPT" value="true" />
     </context>
   </template>
-  <template name="a-c-reactive-form-html" value="&lt;form [formGroup]=&quot;formGroupName&quot;&gt;&#10;  &lt;input formControlName=&quot;formControlName&quot; /&gt;&#10;  &lt;p *ngIf=&quot;formGroupName.errors.errorFieldName&quot;&gt;validation failed!&lt;/p&gt;&#10;&lt;/form&gt;&#10;&lt;!--for debugging--&gt;&#10;&lt;hr /&gt;&#10;{{formGroupName.value | json}} &lt;br /&gt;&#10;{{formGroupName.valid }} &lt;br /&gt;&#10;{{formGroupName.errors | json}}" toReformat="false" toShortenFQNames="true">
+  <template name="a-c-reactive-form-html" value="&lt;form [formGroup]=&quot;formGroupName&quot;&gt;&#10;  &lt;input formControlName=&quot;formControlName&quot; /&gt;&#10;  &lt;p *ngIf=&quot;formGroupName.errors.errorFieldName&quot;&gt;validation failed!&lt;/p&gt;&#10;&lt;/form&gt;&#10;&lt;!--for debugging--&gt;&#10;&lt;hr /&gt;&#10;{{formGroupName.value | json}} &lt;br /&gt;&#10;{{formGroupName.valid }} &lt;br /&gt;&#10;{{formGroupName.errors | json}}" description="" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="HTML" value="true" />
     </context>
