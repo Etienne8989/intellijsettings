@@ -161,4 +161,9 @@
       <option name="JAVA_CODE" value="true" />
     </context>
   </template>
+  <template name="temp-exception-class" value="public class ExceptionName extends RuntimeException {&#10;&#10;    public ExceptionName(String message) {&#10;        super(message);&#10;    }&#10;&#10;    public ExceptionName(String message, Exception cause) {&#10;        super(message, cause);&#10;    }&#10;&#10;}" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
 </templateSet>
