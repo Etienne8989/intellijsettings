@@ -4,6 +4,7 @@
       <Rule active="false" key="squid:S00119" />
       <Rule active="false" key="squid:S1155" />
       <Rule active="false" key="squid:S1135" />
+      <Rule active="false" key="java:S108" />
       <Rule active="false" key="Web:AvoidCommentedOutCodeCheck" />
       <Rule active="false" key="squid:S1854" />
       <Rule active="false" key="squid:S3415" />
