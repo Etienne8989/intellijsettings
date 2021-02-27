@@ -11,6 +11,7 @@
       <mapping pattern="soap-resouce-ksm-postpay-info" type="PLAIN_TEXT" />
       <mapping pattern="soap-api.adoc" type="PLAIN_TEXT" />
       <mapping pattern="aaa" type="PLAIN_TEXT" />
+      <mapping ext="drawio" type="PLAIN_TEXT" />
       <mapping ext="index" type="PLAIN_TEXT" />
       <mapping ext="graphml" type="PLAIN_TEXT" />
     </extensionMap>
