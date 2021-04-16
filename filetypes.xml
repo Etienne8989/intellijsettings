@@ -2,7 +2,9 @@
   <component name="FileTypeManager" version="18">
     <extensionMap>
       <mapping pattern="sss" type="AndroidDataBinding" />
+      <mapping ext="space.kts" type="Kotlin" />
       <mapping ext="gradle.kts" type="Kotlin" />
+      <mapping ext="main.kts" type="Kotlin" />
       <mapping pattern="soap-resouce-ksm-postpay-info" type="PLAIN_TEXT" />
       <mapping pattern="release-notes.adoc" type="PLAIN_TEXT" />
       <mapping pattern="usecase-list.adoc" type="PLAIN_TEXT" />
