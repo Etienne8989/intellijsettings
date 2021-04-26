@@ -166,4 +166,9 @@
       <option name="JAVA_CODE" value="true" />
     </context>
   </template>
+  <template name="test-base-test-junit4" value="@Slf4j&#10;@RunWith(SpringRunner.class)&#10;@ActiveProfiles(value = {&quot;test&quot;})&#10;@SpringBootTest()&#10;@AutoConfigureMockMvc&#10;@WebAppConfiguration&#10;public abstract class AbstractBaseTest {&#10;&#10;    public MockMvc               mockMvc;&#10;    @Autowired&#10;    public ObjectMapper          objectMapper;&#10;    &#10;    // helper fields&#10;    &#10;    // helper methods&#10;    &#10;}" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
 </templateSet>
