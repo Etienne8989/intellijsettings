@@ -171,7 +171,7 @@
       <option name="JAVA_CODE" value="true" />
     </context>
   </template>
-  <template name="temp-log-loggerfactory" value="private static final Logger log = LoggerFactory.getLogger(CollectionController.class);" toReformat="false" toShortenFQNames="true">
+  <template name="temp-log-loggerfactory" value="private static final Logger log = LoggerFactory.getLogger(CollectionController.class);" description="" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="JAVA_CODE" value="true" />
     </context>
