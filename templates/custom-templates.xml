@@ -1,0 +1,184 @@
+<templateSet group="custom-templates">
+  <template name="temp-testclassjunit4-springboottest(gesamter-context)" value="@SpringBootTest&#10;@RunWith(SpringRunner.class)&#10;@Slf4j //nur wenn logausgaben nötig sind&#10;public class $CLASS_NAME$ {&#10;&#10;    @Test&#10;    public void $TestName$() {&#10;        $END$&#10;    }&#10;&#10;}" description="template to create a junit4-testclass with@Springboottest (loads the hole spring-boot-context)" toReformat="false" toShortenFQNames="true">
+    <variable name="CLASS_NAME" expression="" defaultValue="ClassNameTest" alwaysStopAt="true" />
+    <variable name="TestName" expression="" defaultValue="testName" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="temp-testclassjunit4-webmvctest(nur-web-components)" value="@RunWith(SpringRunner.class)&#10;@WebMvcTest(/*Klassen inserten, die @autowired werden sollen z.B. {PostpayBalanceService.class, GetInfo3Client.class}*/)&#10;@Slf4j //nur wenn geloggt werden soll&#10;public class $CLASS_NAME_TEST$ {&#10;&#10;    @Test&#10;    public void test() {&#10;   &#10;    }&#10;&#10;}" description="" toReformat="false" toShortenFQNames="true">
+    <variable name="CLASS_NAME_TEST" expression="" defaultValue="ClassNameTest" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="temp-test-given-mockito" value="BDDMockito.given(GivenClass.givenMethod(ArgumentMatchers.any()))&#10;                .willReturn(&quot;info3Response&quot;);" description="inserts a given method for a mock" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="temp-testAssertException-Junit5" value="Assertions.assertThrows(IllegalArgumentException.class, () -&gt; {&#10;            verificationService.isCustomerVerificationValid(verificationData);&#10;        });" description="assertes a exception for a given method (junit5 only)" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="temp-testAssertException-Junit4" value=" @Rule&#10;    public final ExpectedException expectedException = ExpectedException.none();&#10;&#10;    @Test&#10;    public void failTest() {&#10;        expectedException.expect(BadGatewayException.class);&#10;        expectedException.expectMessage(&quot;Got illegal response from Backend.&quot;);&#10;&#10;        //further testing here&#10;    }" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="temp-testController" value="@RunWith(SpringRunner.class)&#10;@WebMvcTest(AccountController.class)&#10;//specify snippet-dirpctory&#10;@AutoConfigureRestDocs(outputDir = &quot;build/generated-snippets/ksm-postpay&quot;)&#10;public class $CLASS_NAME$ {&#10;&#10;    private static final MediaType DEFAULT_CONTENT_TYPE = MediaType.APPLICATION_JSON_UTF8;&#10;&#10;    @Autowired&#10;    private MockMvc mockMvc;&#10;&#10;&#10;    @MockBean&#10;    AccountController accountController;&#10;&#10;    @Test&#10;    public void controllerTest() throws Exception {&#10;&#10;        //request-poyload&#10;        String request = &quot;{ \&quot;msisdn\&quot;: \&quot;49171123456789\&quot;,&quot; +&#10;                         &quot; \&quot;currentMinBudget\&quot;: 500,&quot; +&#10;                         &quot; \&quot;currentMonth\&quot;: \&quot;Jan\&quot;,&quot; +&#10;                         &quot; \&quot;currentSumEuroCent\&quot;: 1000,&quot; +&#10;                         &quot; \&quot;lastMonth\&quot;: \&quot;Dez\&quot;,&quot; +&#10;                         &quot; \&quot;lastSumEuroCent\&quot;: 200&quot; +&#10;                         &quot;}&quot;;&#10;        &#10;        /*Alternatively you can create the real Request-Payload-Object and &#10;        * map it to a string by Objectmapper&#10;        * e.g. &#10;        Request request = new Payload();&#10;        payload.setNumber(&quot;491234567&quot;);&#10;        HttpHeaders httpHeaders = new HttpHeaders();&#10;        httpHeaders.setContentType(MediaType.APPLICATION_JSON);&#10;        ResponseEntity&lt;PostpayInfoResource&gt; responseEntity = new ResponseEntity&lt;&gt;(request, httpHeaders, HttpStatus.OK);&#10;        ObjectMapper objectMapper = new ObjectMapper();&#10;        String requestJSON = objectMapper.writeValueAsString(request);&#10;        * */&#10;&#10;        //controller-method to test mock (if you specify a real Request-object, you can put is in the method parameter instad of any()&#10;        //the Payload from willReturn method will be shown in the Response-snippets (in this case just a OK-Responseentity with no payload) &#10;        BDDMockito.given(accountController.postMSISDNAndGetAccountInfoSMS(ArgumentMatchers.any())).willReturn(new ResponseEntity&lt;&gt;(HttpStatus.OK));&#10;&#10;        //specify endpoint&#10;        mockMvc.perform(MockMvcRequestBuilders.post(&quot;/mobile/accountbalance/postpay/sms&quot;)&#10;                                .header(&quot;X-B3-TraceId&quot;, UUID.randomUUID())&#10;                                .header(&quot;X-B3-SpanId&quot;, UUID.randomUUID())&#10;                                .content(request)&#10;                                .contentType(MediaType.APPLICATION_JSON))&#10;                .andExpect(MockMvcResultMatchers.status().isOk())&#10;                //specify document-name&#10;                .andDo(MockMvcRestDocumentation.document(&quot;post-account-data-sms&quot;,&#10;                                                               Preprocessors.preprocessRequest(Preprocessors.prettyPrint()),&#10;                                                               Preprocessors.preprocessResponse(Preprocessors.prettyPrint()),&#10;                                                               HeaderDocumentation.requestHeaders(&#10;                                        HeaderDocumentation.headerWithName(&quot;Content-Type&quot;).description(&quot;Gibt den Medientyp der Ressource (der Anfrage) an. Die Angabe ist immer: application/json; charset=UTF-8&quot;),&#10;                                        HeaderDocumentation.headerWithName(&quot;X-B3-TraceId&quot;).description(&quot;Der Header wird für das Tracing der Anfragen, auch über Anwendungsgrenzen hinweg, verwendet.&quot;),&#10;                                        HeaderDocumentation.headerWithName(&quot;X-B3-SpanId&quot;).description(&quot;Der Header wird für das Tracing der Anfragen, auch über Anwendungsgrenzen hinweg, verwendet.&quot;)),&#10;                                                               PayloadDocumentation.requestFields(&#10;                                        PayloadDocumentation.fieldWithPath(&quot;msisdn&quot;).description(&quot;Empfänger der SMS.&quot;),&#10;                                        PayloadDocumentation.fieldWithPath(&quot;currentMinBudget&quot;).description(&quot;Parameter `KOKO_AKT_RELAX_DUR` im SMS-Text.&quot;),&#10;                                        PayloadDocumentation.fieldWithPath(&quot;currentMonth&quot;).description(&quot;Parameter `KOKO_AKT_MONAT` im SMS-Text. Der String wird 1:1 übernommen, das Format bestimmt die Sprachapplikation.&quot;),&#10;                                        PayloadDocumentation.fieldWithPath(&quot;currentSumEuroCent&quot;).description(&quot;Parameter `KOKO_AKT_EURO` und `KOKO_AKT_CENT` im SMS-Text. Betrag in Eurocent.&quot;),&#10;                                        PayloadDocumentation.fieldWithPath(&quot;lastMonth&quot;).description(&quot;Parameter `KOKO_LAST_MONAT` im SMS-Text. Der String wird 1:1 übernommen, das Format bestimmt die Sprachapplikation.&quot;),&#10;                                        PayloadDocumentation.fieldWithPath(&quot;lastSumEuroCent&quot;).description(&quot;Parameter `KOKO_LAST_EURO` und `KOKO_LAST_CENT` im SMS-Text. Betrag in Eurocent.&quot;)),&#10;                                                               PayloadDocumentation.responseFields(&#10;                                        PayloadDocumentation.fieldWithPath(&quot;currPeriodEnd&quot;).type(&quot;DateTime (ISO-Format)&quot;).description(&#10;                                                &quot;Zitat Careka: \&quot;End of the current billing period. Corresponds to the last day of the month. (Time 23:59:59; CCS system date). &gt; 0 or  &gt; MIN_DATE\n\&quot;&quot;),&#10;                                        PayloadDocumentation.fieldWithPath(&quot;lastPeriodEnd&quot;).type(&quot;DateTime (ISO-Format)&quot;).description(&quot;Zitat Careka: \&quot;End of the last billing period.\n\n&quot; +&#10;                                                                                                                 &quot;- Corresponds to the last day of the month (time 23:59:59; CCS system date) of the previous month\n\n&quot; +&#10;                                                                                                                 &quot;- 0 or MIN_DATE, if the previous month has already been billed or with customers without billing data in the previous month (new customers, change scenarios, etc.) Otherwise &gt; 0 or  &gt; MIN_DATE\n\&quot;&quot;),&#10;                                        PayloadDocumentation.fieldWithPath(&quot;currPeriodAmountTotal&quot;).description(&quot;Zitat Careka: \&quot;Sum Information for the current billing period.\&quot;&quot;),&#10;                                        PayloadDocumentation.fieldWithPath(&quot;lastPeriodServices[].serviceQuantityInformationList[]&quot;).description(&quot;Zitat Careka: \&quot;List of service quatitiy informations\n\&quot;&quot;))));&#10;    }&#10;}" description="documentation-snippets for a test-controller" toReformat="false" toShortenFQNames="true">
+    <variable name="CLASS_NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="temp-exception" value="throw new $exceptionName$ (&quot;$message$. Cause: &quot; e.getClass().getSimpleName() + e.getMessage(), e);" description="" toReformat="false" toShortenFQNames="true">
+    <variable name="exceptionName" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="message" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="temp-restController" value="@RestController&#10;@RequestMapping(&quot;/outerPath&quot;)&#10;@AllArgsConstructor&#10;public class $ClassName$ {&#10;&#10;    @VaspLog&#10;    @PostMapping(&quot;/innerPath&quot;)&#10;    public ResponseEntity&lt;Void&gt; method(@RequestBody RequestBody requestBody) {&#10;        //Services&#10;        return new ResponseEntity&lt;&gt;(new HttpHeaders(), HttpStatus.CREATED);&#10;    }&#10;&#10;}" description="" toReformat="false" toShortenFQNames="true">
+    <variable name="ClassName" expression="className()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="temp-client-rest" value="@Slf4j&#10;@AllArgsConstructor&#10;@Component&#10;public class $ClassName$ {&#10;&#10;    ConnectorSettings connectorSettings;&#10;    Executor executor;&#10;&#10;    @CircuitBreaker(name = &quot;CircuitBreakerName&quot;)&#10;    public void getRequest() {&#10;        String ResponseEntity&lt;$Object$&gt; = connectorSettings.getUrl();&#10;&#10;        ResponseEntity&lt;$Object$&gt; responseEntity;&#10;        try {&#10;            responseEntity = executor.getObject(url, restTemplate);&#10;        } catch (Exception e) {&#10;            throw new BadGatewayException(&quot;Could not send Request. Cause: &quot; + e.getClass().getSimpleName() + &quot;: &quot; + e.getMessage(), e);&#10;        }&#10;    }&#10;&#10;    @CircuitBreaker(name = &quot;CircuitBreakerName&quot;)&#10;    public void postRequest($Object$ postObject) {&#10;        String url = connectorSettings.getUrl();&#10;        &#10;        try {&#10;            executor.postObject(url, postObject, restTemplate);&#10;        } catch (Exception e) {&#10;            throw new BadGatewayException(&quot;Could not send Request. Cause: &quot; + e.getClass().getSimpleName() + &quot;: &quot; + e.getMessage(), e);&#10;        }&#10;    }&#10;}" description="" toReformat="false" toShortenFQNames="true">
+    <variable name="ClassName" expression="className()" defaultValue="" alwaysStopAt="true" />
+    <variable name="Object" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="temp-executor" value="@Component&#10;public class $ClassName$ {&#10;&#10;    @VaspLog(httpMethod = &quot;GET&quot;)&#10;    public ResponseEntity&lt;$Object$&gt; getObject(@NotNull @VaspLogParameterURL String url,&#10;                                          @NotNull @VaspLogIgnore RestTemplate template) {&#10;        return template.getForEntity(url, $Object$.class);&#10;    }&#10;&#10;    @VaspLog(httpMethod = &quot;POST&quot;)&#10;    public ResponseEntity&lt;$Object$&gt; postObject(@VaspLogParameterURL String url,&#10;                                           @VaspLogPayload Object payLoad,&#10;                                           @VaspLogIgnore RestTemplate template) {&#10;        return template.postForEntity(url, payLoad, $Object$.class);&#10;    }&#10;}" description="" toReformat="false" toShortenFQNames="true">
+    <variable name="ClassName" expression="className()" defaultValue="" alwaysStopAt="true" />
+    <variable name="Object" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="temp-settings" value="@Data&#10;@Component&#10;@ConfigurationProperties(prefix = &quot;prefixname&quot;)&#10;public class $ClassName$ {&#10;&#10;    private String prop1;&#10;&#10;    private String prop2;&#10;&#10;    private String prop3;&#10;&#10;}" description="" toReformat="false" toShortenFQNames="true">
+    <variable name="ClassName" expression="className()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="temp-entity" value="@Data&#10;@Entity&#10;@Table(name = &quot;article&quot;)&#10;@NoArgsConstructor&#10;@AllArgsConstructor&#10;public class SmsMetaDataEntity implements Serializable {&#10;&#10;    private static final long serialVersionUID = 1L;&#10;&#10;    @Id&#10;    @GeneratedValue(generator = &quot;uuid&quot;)&#10;    @GenericGenerator(name = &quot;uuid&quot;, strategy = &quot;uuid2&quot;)&#10;    @Column(name = &quot;oid&quot;, length = 36, nullable = false)&#10;    private String oid;&#10;&#10;    @NaturalId&#10;    @Column(nullable = false)&#10;    private String slug;&#10;&#10;    @Column(name = &quot;column_one&quot;, nullable = false, length = 2500)&#10;    private String columnOne;&#10;&#10;    @Column(name = &quot;col&quot;, nullable = false, columnDefinition = &quot;TEXT&quot;)&#10;    private String columnTwo;&#10;&#10;    @Column(name = &quot;column_three&quot;, nullable = false, columnDefinition = &quot;TIMESTAMP&quot;)&#10;    @Type(type = Jdbc42ZonedDateTimeType.NAME)&#10;    private ZonedDateTime columnThree;&#10;&#10;    @Column(name = &quot;status&quot;, nullable = false, length = 1024)&#10;    @Enumerated(EnumType.STRING)&#10;    private DeliveryStatus columnFour;&#10;&#10;    @OneToMany(targetEntity = ManyEntity.class, mappedBy = &quot;refereceVariableInManyEntity&quot;, fetch = FetchType.EAGER, cascade = CascadeType.ALL)&#10;    private List&lt;ManyEntity&gt; oneToManyVariable;&#10;&#10;    //foreign key&#10;    @ManyToOne()&#10;    @JoinColumn(name = &quot;category_slug&quot;, referencedColumnName = &quot;refereceVariable&quot;)&#10;    private ForeigenClass categorySlug;&#10;&#10;}" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="temp-executor-soap" value="@Component&#10;public class $className$ {&#10;&#10;    @VaspLog&#10;    public GetContractMCInfoBulk4Response marshalSendAndReceive(@VaspLogParameterURL String url,&#10;                                                                GetContractMCInfoBulk4_Type requestPayload,&#10;                                                                @SuppressWarnings(&quot;unused&quot;) @VaspLogParameter(&quot;correlationId&quot;) String correlationId,&#10;                                                                @VaspLogIgnore WebServiceTemplate template) {&#10;        return (GetContractMCInfoBulk4Response) template.marshalSendAndReceive(url, requestPayload);&#10;    }&#10;}" description="" toReformat="false" toShortenFQNames="true">
+    <variable name="className" expression="className()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="temp-repository" value="@Repository&#10;public interface $className$ extends JpaRepository&lt;$EntityType$, $IdType$&gt; {&#10;&#10;&#10;}" description="" toReformat="false" toShortenFQNames="true">
+    <variable name="className" expression="className()" defaultValue="" alwaysStopAt="false" />
+    <variable name="EntityType" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="IdType" expression="" defaultValue="Integer" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="temp-mvc-response" value="String contentAsString = mockMvc.perform(RestDocumentationRequestBuilders.post(&quot;/enpoint&quot;)&#10;                                                 .header(&quot;X-B3-TraceId&quot;, UUID.randomUUID().toString())&#10;                                                 .header(&quot;X-B3-SpanId&quot;, UUID.randomUUID().toString())&#10;                                                 .contentType(MediaType.APPLICATION_JSON)&#10;                                                 .content(new ObjectMapper().writeValueAsString(requestObject))&#10;                                                 .accept(MediaType.APPLICATION_JSON)).andReturn().getResponse().getContentAsString();" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="temp-mvc-docu" value="   mockMvc.perform(RestDocumentationRequestBuilders.post(&quot;/endpoint&quot;)&#10;                                .header(&quot;X-B3-TraceId&quot;, UUID.randomUUID().toString())&#10;                                .header(&quot;X-B3-SpanId&quot;, UUID.randomUUID().toString())&#10;                                .contentType(MediaType.APPLICATION_JSON)&#10;                                .content(new ObjectMapper().writeValueAsString(requestdata))&#10;                                .accept(MediaType.APPLICATION_JSON))&#10;                .andExpect(status().isOk())&#10;                .andExpect(content().contentType(MediaType.APPLICATION_JSON))&#10;                .andDo(document(&quot;retrieve-quick-info&quot;,&#10;                                preprocessRequest(prettyPrint()),&#10;                                preprocessResponse(prettyPrint()),&#10;                                requestHeaders(headerWithName(&quot;Content-Type&quot;).description(&quot;Gibt den Medientyp der Ressource (der Anfrage) an. Die Angabe ist immer: application/json&quot;),&#10;                                               headerWithName(&quot;X-B3-TraceId&quot;).description(&#10;                                                       &quot;Der Header wird für das Tracing der Anfragen, auch über Anwendungsgrenzen hinweg, verwendet. Ein Zufallsstring in 32 Lower-Hex-Zeichen kodiert.&quot;),&#10;                                               headerWithName(&quot;X-B3-SpanId&quot;).description(&#10;                                                       &quot;Der Header wird für das Tracing der Anfragen, auch über Anwendungsgrenzen hinweg, verwendet. Ein Zufallsstring in 32 Lower-Hex-Zeichen kodiert.&quot;)),&#10;                                requestFields(fieldWithPath(&quot;requestfield-name&quot;).description(&quot;requestfield-description&quot;)),&#10;                                responseFields(fieldWithPath(&quot;responsefield-name&quot;).description(&quot;responsefield-description.&quot;))));" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="temp-jaxb" value=" public static &lt;T&gt; JAXBElement&lt;T&gt; buildJAXElement(T elementInstance, String localPartName) {&#10;        return new JAXBElement&lt;T&gt;(new QName(localPartName), (Class&lt;T&gt;) elementInstance.getClass(), elementInstance);&#10;    }" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="temp-retry" value="    @Retryable(include = RequestTimeoutException.class,&#10;            maxAttemptsExpression = &quot;${service.ticket.retry.maxAttempts}&quot;,&#10;            backoff = @Backoff(delayExpression = &quot;${service.ticket.retry.delay}&quot;,&#10;                    multiplierExpression = &quot;${service.ticket.retry.multiplier}&quot;,&#10;                    maxDelayExpression = &quot;${service.ticket.retry.maxDelay}&quot;))" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="temp-advice" value="import de.telekom.vasp.restutils.resources.ErrorDocument;&#10;import lombok.extern.slf4j.Slf4j;&#10;import org.springframework.http.HttpStatus;&#10;import org.springframework.http.ResponseEntity;&#10;import org.springframework.http.converter.HttpMessageConversionException;&#10;import org.springframework.web.bind.annotation.ControllerAdvice;&#10;import org.springframework.web.bind.annotation.ExceptionHandler;&#10;import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;&#10;&#10;&#10;@Slf4j&#10;@ControllerAdvice&#10;public class $className$ extends ResponseEntityExceptionHandler {&#10;&#10;    @ExceptionHandler(HttpMessageConversionException.class)&#10;    public ResponseEntity&lt;Object&gt; handleSqlProcessingException(HttpMessageConversionException exception) {&#10;        String message = String.format(&quot;Request contains a malformed Json: %s&quot;, exception.getMessage());&#10;        if (log.isDebugEnabled()) {&#10;            log.debug(HttpStatus.BAD_REQUEST.getReasonPhrase() + &quot;: &quot; + message, exception);&#10;        }&#10;        ErrorDocument errorDocument = new ErrorDocument(HttpStatus.BAD_REQUEST, message);&#10;        return createErrorDocumentResponse(errorDocument);&#10;    }&#10;&#10;    protected ResponseEntity&lt;Object&gt; createErrorDocumentResponse(ErrorDocument errorDocument) {&#10;        return new ResponseEntity(errorDocument, errorDocument.getStatus());&#10;    }&#10;&#10;}" description="ControllerExceptionHandler for exception-advice" toReformat="false" toShortenFQNames="true">
+    <variable name="className" expression="className()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="temp-enum" value="    public enum TestEnum {&#10;        VALUE_ONE(200, &quot;OK&quot;),&#10;        VALUE_TWO(404, &quot;not found&quot;);&#10;&#10;        String message;&#10;        int status;&#10;&#10;        TestEnum(int status, String message){&#10;            this.message = message;&#10;            this.status = status;&#10;        }&#10;    }" description="example of a enum" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="temp-settings-yml-db-h2-test" value="spring:&#10;  datasource:&#10;    url: jdbc:h2:file:./build/test;DB_CLOSE_ON_EXIT=FALSE&#10;    password: ''&#10;    username: sa&#10;    driverClassName: org.h2.Driver&#10;  jpa:&#10;    database-platform: org.hibernate.dialect.H2Dialect&#10;    hibernate.ddl-auto: create&#10;    generate-ddl: true" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="temp-settings-yml-db-oracle" value="spring:&#10;  jpa:&#10;    database-platform: org.hibernate.dialect.Oracle10gDialect&#10;    hibernate.ddl-auto: none&#10;    open-in-view: false&#10;  datasource:&#10;    driverClassName: oracle.jdbc.OracleDriver&#10;    platform: org.hibernate.dialect.Oracle10gDialect&#10;    url: jdbc:oracle:thin:@xxx.vasp.prod&#10;    username: username&#10;    password: password" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="temp-settings-yml-management-endpoints" value="management:&#10;  endpoint.health.show-details: always&#10;  endpoints:&#10;    web.exposure.include:&#10;      - health&#10;      - info&#10;      - monitoring&#10;      - loggers&#10;      - metrics&#10;      - prometheus&#10;    jmx.exposure.exclude: '*'" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="temp-static-bean" value="import lombok.Data;&#10;import org.springframework.beans.factory.InitializingBean;&#10;import org.springframework.stereotype.Component;&#10;&#10;@Data&#10;@Component&#10;public class $1$ implements InitializingBean {&#10;&#10;    private static $1$ clazz;&#10;&#10;    @Override&#10;    public void afterPropertiesSet() {&#10;        clazz = this;&#10;    }&#10;&#10;    static $1$ getStaticInstance(){&#10;        return clazz;&#10;    }&#10;    &#10;}" description="" toReformat="false" toShortenFQNames="true">
+    <variable name="1" expression="className()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="temp-configuration-properties-class" value="import lombok.Data;&#10;import org.springframework.boot.context.properties.ConfigurationProperties;&#10;import org.springframework.stereotype.Component;&#10;&#10;@Data&#10;@Component&#10;@ConfigurationProperties(&quot;config.name&quot;)&#10;public class $CLASS$ {&#10;&#10;    private String $1$;&#10;    private String $2$;&#10;    private String $3$;&#10;&#10;}" description="" toReformat="false" toShortenFQNames="true">
+    <variable name="CLASS" expression="className()" defaultValue="ClassName" alwaysStopAt="true" />
+    <variable name="1" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="2" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="3" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="temp-ex-log" value="log.debug(e.getClass().getName() + &quot; : &quot; + e.getMessage(), e);" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="temp-convert-to-UTF8" value="String stg = new String(&quot;ääüü&quot;.getBytes(StandardCharsets.UTF_8));" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="temp-ex-throw" value="throw new BadGatewayException(ex.getClass().getName() + &quot; : &quot; + ex.getMessage(), ex);" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="temp-exception-class" value="public class ExceptionName extends RuntimeException {&#10;&#10;    public ExceptionName(String message) {&#10;        super(message);&#10;    }&#10;&#10;    public ExceptionName(String message, Exception cause) {&#10;        super(message, cause);&#10;    }&#10;&#10;}" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="test-base-test-junit4" value="@Slf4j&#10;@RunWith(SpringRunner.class)&#10;@ActiveProfiles(value = {&quot;test&quot;})&#10;@SpringBootTest()&#10;@AutoConfigureMockMvc&#10;@WebAppConfiguration&#10;public abstract class AbstractBaseTest {&#10;&#10;    public MockMvc               mockMvc;&#10;    @Autowired&#10;    public ObjectMapper          objectMapper;&#10;&#10;    @Before&#10;    public abstract void setup();&#10;    &#10;    // helper fields&#10;    &#10;    // helper methods&#10;    &#10;}" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="temp-log-loggerfactory" value="private static final Logger log = LoggerFactory.getLogger(CollectionController.class);" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="jquery-ajax-post" value="  $(&quot;#form-change-btn&quot;).click(function () {&#10;        let form = $(&quot;#form-change&quot;);&#10;        let csrf = form.find(&quot;input[name='_csrf']&quot;);&#10;        let data = JSON.stringify(objectifyFormFilteringCSRF(form.serializeArray()));&#10;        let action = form.attr(&quot;action&quot;);&#10;        let url = action + &quot;?&quot; + csrf.attr(&quot;name&quot;) + &quot;=&quot; + csrf.attr(&quot;value&quot;);&#10;        $.ajax({&#10;            type: &quot;POST&quot;,&#10;            url: url,&#10;            contentType: &quot;application/json&quot;,&#10;            data: data&#10;        }).done(function (jqXHR) {&#10;                  console.log(jqXHR.responseJSON())&#10;        }).fail(function (jqXHR) {&#10;              console.log(jqXHR.responseJSON())&#10;        });&#10;    })&#10;    &#10;      function objectifyFormFilteringCSRF(formArray) {&#10;        let returnArray = {};&#10;        var lang = [];&#10;        for (let i = 0; i &lt; formArray.length; i++) {&#10;            if (formArray[i]['name'] !== &quot;_csrf&quot;) {&#10;                if(formArray[i]['name'].indexOf('[]') &gt; -1){&#10;                    lang.push(formArray[i]['value']);&#10;                    var key = formArray[i]['name'].substr(0, formArray[i]['name'].indexOf('[]'));&#10;                    if(!returnArray[key]){&#10;&#10;                        returnArray[key] = [];&#10;                    }&#10;                    returnArray[key].push(formArray[i]['value']);&#10;&#10;                }else{&#10;                    returnArray[formArray[i]['name']] = formArray[i]['value'];&#10;                }&#10;            }&#10;        }&#10;        return returnArray;&#10;    }" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+    </context>
+  </template>
+</templateSet>
