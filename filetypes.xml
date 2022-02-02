@@ -6,16 +6,18 @@
       <mapping ext="space.kts" type="Kotlin" />
       <mapping ext="gradle.kts" type="Kotlin" />
       <mapping ext="main.kts" type="Kotlin" />
-      <mapping pattern="soap-resouce-ksm-postpay-info" type="PLAIN_TEXT" />
-      <mapping pattern="release-notes.adoc" type="PLAIN_TEXT" />
       <mapping pattern="usecase-list.adoc" type="PLAIN_TEXT" />
-      <mapping pattern="soap-api.adoc" type="PLAIN_TEXT" />
       <mapping pattern="cuda-fixednet-applikationsbeschreibung.adoc" type="PLAIN_TEXT" />
+      <mapping pattern="release-notes.adoc" type="PLAIN_TEXT" />
+      <mapping pattern="soap-api.adoc" type="PLAIN_TEXT" />
       <mapping pattern="aaa" type="PLAIN_TEXT" />
+      <mapping pattern="soap-resouce-ksm-postpay-info" type="PLAIN_TEXT" />
       <mapping ext="graphml" type="PLAIN_TEXT" />
       <mapping ext="drawio" type="PLAIN_TEXT" />
       <mapping ext="index" type="PLAIN_TEXT" />
       <mapping ext="tx" type="PLAIN_TEXT" />
+      <removed_mapping ext="apk" approved="true" type="ARCHIVE" />
+      <removed_mapping ext="psd" approved="true" type="Image" />
     </extensionMap>
   </component>
 </application>
