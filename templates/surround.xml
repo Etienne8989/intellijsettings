@@ -1,5 +1,5 @@
 <templateSet group="surround">
-  <template name="customer-specific" value="//customer specific, &lt;customer name&gt; &lt;customization name&gt;, EH $DATE$, START&#10;$SELECTION$&#10;//customer specific, &lt;customer name&gt; &lt;customization name&gt;, EH $DATE$, END" toReformat="false" toShortenFQNames="true">
+  <template name="customer-specific" value="//customer specific, &lt;customer name&gt; &lt;customization name&gt;, EH $DATE$, START&#10;$SELECTION$&#10;//customer specific, &lt;customer name&gt; &lt;customization name&gt;, EH $DATE$, END" description="" toReformat="false" toShortenFQNames="true">
     <variable name="DATE" expression="date()" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="OTHER" value="true" />
