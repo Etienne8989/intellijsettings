@@ -16,6 +16,7 @@
       <mapping ext="drawio" type="PLAIN_TEXT" />
       <mapping ext="index" type="PLAIN_TEXT" />
       <mapping ext="tx" type="PLAIN_TEXT" />
+      <mapping ext="jks" type="XML" />
       <removed_mapping ext="apk" approved="true" type="ARCHIVE" />
       <removed_mapping ext="psd" approved="true" type="Image" />
     </extensionMap>
