@@ -1,11 +1,11 @@
 <templateSet group="surround">
-  <template name="customer-specific-java" value="//customer specific, &lt;customer name&gt; &lt;customization name&gt;, Etienne Hoven $DATE$, START&#10;$SELECTION$&#10;//customer specific, &lt;customer name&gt; &lt;customization name&gt;, Etienne Hoven $DATE$, END" description="" toReformat="false" toShortenFQNames="true">
+  <template name="customer-specific-java" value="//customer specific, package_swissmem_TS-14472_subcourse_calendar (migration from TS8251), Etienne Hoven $DATE$, START&#10;$SELECTION$&#10;//customer specific, package_swissmem_TS-14472_subcourse_calendar (migration from TS8251), Etienne Hoven $DATE$, END" description="" toReformat="false" toShortenFQNames="true">
     <variable name="DATE" expression="date()" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="OTHER" value="true" />
     </context>
   </template>
-  <template name="customer-specific-xml" value="&lt;!--customer specific, &lt;customer name&gt; &lt;customization name&gt;, Etienne Hoven $DATE$, START--&gt;&#10;$SELECTION$&#10;&lt;!--customer specific, &lt;customer name&gt; &lt;customization name&gt;, Etienne Hoven $DATE$, END--&gt;" description="" toReformat="false" toShortenFQNames="true">
+  <template name="customer-specific-xml" value="&lt;!--customer specific, package_swissmem_TS-14472_subcourse_calendar (migration from TS8251), Etienne Hoven $DATE$, START--&gt;&#10;$SELECTION$&#10;&lt;!--customer specific, package_swissmem_TS-14472_subcourse_calendar (migration from TS8251), Etienne Hoven $DATE$, END--&gt;" description="" toReformat="false" toShortenFQNames="true">
     <variable name="DATE" expression="date()" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="OTHER" value="true" />
