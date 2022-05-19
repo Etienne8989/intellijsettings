@@ -5,7 +5,7 @@
         <SonarQubeServer>
           <option name="hostUrl" value="https://sonarqube.imc-hosting.com/" />
           <token>dfcfdfcfdfc9dfcbdfc8df92df9edfccdfcbdf9ddf9bdfccdf93dfc9dfcfdf9ddf92dfcedfccdf99dfcbdf9cdf9cdfc8df92dfc9dfcedf9bdf92dfcfdf98dfcbdf9bdfccdf9cdf99dfc9dfcbdf9ddf9d</token>
-          <option name="name" value="SonarQube_AWS" />
+          <option name="name" value="sq" />
         </SonarQubeServer>
       </list>
     </option>
