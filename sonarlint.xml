@@ -1,13 +1,22 @@
 <application>
   <component name="SonarLintGlobalSettings">
+    <option name="sonarQubeServers">
+      <list>
+        <SonarQubeServer>
+          <option name="hostUrl" value="https://sonarqube.imc-hosting.com/" />
+          <token>dfcfdfcfdfc9dfcbdfc8df92df9edfccdfcbdf9ddf9bdfccdf93dfc9dfcfdf9ddf92dfcedfccdf99dfcbdf9cdf9cdfc8df92dfc9dfcedf9bdf92dfcfdf98dfcbdf9bdfccdf9cdf99dfc9dfcbdf9ddf9d</token>
+          <option name="name" value="SonarQube_AWS" />
+        </SonarQubeServer>
+      </list>
+    </option>
     <rules>
       <Rule active="false" key="squid:S00119" />
       <Rule active="false" key="squid:S1155" />
       <Rule active="false" key="squid:S1135" />
       <Rule active="false" key="java:S108" />
       <Rule active="false" key="Web:AvoidCommentedOutCodeCheck" />
-      <Rule active="false" key="squid:S1854" />
       <Rule active="false" key="squid:S3415" />
+      <Rule active="false" key="squid:S1854" />
       <Rule active="false" key="squid:S1192" />
       <Rule active="false" key="squid:S1193" />
     </rules>
