@@ -1,6 +1,5 @@
 <templateSet group="surround">
-  <template name="customer-specific-java" value="//customer specific, package_swissmem_TS-14472_subcourse_calendar (migration from TS8251), Etienne Hoven $DATE$, START&#10;$SELECTION$&#10;//customer specific, package_swissmem_TS-14472_subcourse_calendar (migration from TS8251), Etienne Hoven $DATE$, END" description="" toReformat="false" toShortenFQNames="true">
-    <variable name="DATE" expression="date()" defaultValue="" alwaysStopAt="true" />
+  <template name="customer-specific-java" value="//customer specific,TS-15108_[Department of Communities and Justice]  reporting of all Test submissions for each Learner,  Etienne, 05.09.2022, Start&#10;$SELECTION$&#10;//customer specific,TS-15108_[Department of Communities and Justice]  reporting of all Test submissions for each Learner,  Etienne, 05.09.2022, End&#10;" description="" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="OTHER" value="true" />
     </context>
